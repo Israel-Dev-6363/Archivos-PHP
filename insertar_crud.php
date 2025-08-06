@@ -1,22 +1,19 @@
-<?php
-include("connection.php");
+<?php 
+include("conexion.php");
 
-$con = connection();
+$con=connection();
 
 $id = null;
-$nombre = $_POST['name'];
-$apellido = $_POST['lastname'];
-$usuario = $_POST['username'];
-$contrasenia = $_POST['password'];
-$correo = $_POST['email'];
+$name=$_POST['name'];
+$lastname=$_POST['lastname'];
+$username=$_POST['username'];
+$passwrod=$_POST['password'];
+$email=$_POST['email'];
 
-$sql = "INSERT INTO tb_personas (nombre, apellido, usuario, contrasenia, correo) 
-        VALUES ('$nombre', '$apellido', '$usuario', '$contrasenia', '$correo')";
-$query = mysqli_query($con, $sql);
+$sql = "INSERT INTO tb_persona VALUES ('$id','$name','$lastname','$username','$passwrod','$email')";
+$query = mysqli_query($con,$sql);
 
 if($query){
-    header("Location: index.php");
-} else {
-    echo "Error: " . mysqli_error($con);
+    header("location: index.php");
 }
 ?>
